@@ -1,12 +1,24 @@
 #include "POINT.h"
 #include <math.h>
+#include <malloc.h>
 
 
 
-void POINT_init(POINT * this_p, float x, float y)
+void POINT_construct(POINT * this_p, float x, float y)
 {
     this_p->x = x;
     this_p->y = y;
+}
+
+int POINT_destruct(POINT* p)
+{
+    if (p == NULL)  return 1;
+
+    else
+    { 
+    delete p;
+    return 0;
+    }
 }
 
 float POINT_distance(POINT* this_p, POINT* p)
