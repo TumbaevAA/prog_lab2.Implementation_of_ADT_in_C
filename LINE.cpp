@@ -9,7 +9,7 @@ int LINE_construct(LINE* this_l, POINT first_p, POINT second_p)
 	{
 		this_l->first_point = first_p;                      
 		this_l->second_point = second_p;
-		this_l->lenght = POINT_distance(&second_p, &first_p);   
+		this_l->lenght = POINT_distance(first_p, second_p);   
 
 		return 0;
 	}

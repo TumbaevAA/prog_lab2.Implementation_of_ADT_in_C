@@ -4,7 +4,7 @@
 
 
 
-void POINT_construct(POINT * this_p, float x, float y)
+void POINT_construct(POINT* this_p, float x, float y)
 {
     this_p->x = x;
     this_p->y = y;
@@ -21,8 +21,8 @@ int POINT_destruct(POINT* this_p)
     }
 }
 
-float POINT_distance(POINT* this_p, POINT* p)
+float POINT_distance(POINT this_p, POINT end_p)
 {
-    float dx = this_p->x - p->x, dy = this_p->y - p->y;
+    float dx = end_p.x - this_p.x, dy = end_p.y - this_p.y;
     return sqrt(dx * dx + dy * dy);
 }
