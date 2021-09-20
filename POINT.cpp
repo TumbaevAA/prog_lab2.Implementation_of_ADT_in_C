@@ -1,6 +1,6 @@
 #include "POINT.h"
 #include <math.h>
-#include <malloc.h>
+
 
 
 
@@ -10,13 +10,13 @@ void POINT_construct(POINT * this_p, float x, float y)
     this_p->y = y;
 }
 
-int POINT_destruct(POINT* p)
+int POINT_destruct(POINT* this_p)
 {
-    if (p == NULL)  return 1;
+    if (this_p == NULL)  return 1;
 
     else
     { 
-    delete p;
+    delete this_p;
     return 0;
     }
 }
