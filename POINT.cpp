@@ -2,27 +2,21 @@
 #include <math.h>
 
 
-
-
-void POINT_construct(POINT* this_p, float x, float y)
+int POINT_init(POINT* this_p, float x, float y)
 {
+    if (this_p == NULL) return 1;
+
     this_p->x = x;
     this_p->y = y;
-}
 
-int POINT_destruct(POINT* this_p)
-{
-    if (this_p == NULL)  return 1;
-
-    else
-    { 
-    delete this_p;
     return 0;
-    }
 }
 
-float POINT_distance(POINT this_p, POINT end_p)
+
+float POINT_distance(POINT* this_p, POINT* end_p)
 {
-    float dx = end_p.x - this_p.x, dy = end_p.y - this_p.y;
+    if (this_p == NULL || end_p == NULL) return -1;
+
+    float dx = end_p->x - this_p->x, dy = end_p->y - this_p->y;
     return sqrt(dx * dx + dy * dy);
 }

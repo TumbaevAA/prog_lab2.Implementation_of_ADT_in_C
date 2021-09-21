@@ -7,6 +7,5 @@ typedef struct LINE
 	float lenght;
 };
 
-int LINE_construct(LINE* this_l, POINT first_p, POINT second_p);
-int LINE_destruct(LINE* this_l);
+int LINE_init(LINE* this_l, POINT* first_p, POINT* second_p);
 
