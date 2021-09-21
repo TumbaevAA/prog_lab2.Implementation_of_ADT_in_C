@@ -13,3 +13,11 @@ int LINE_init(LINE* this_l, POINT* first_p, POINT* second_p)
 	return 0;
 		
 }
+
+int LINE_is_point_on_line(LINE* this_l, POINT* p)
+{
+	if (this_l == NULL || p == NULL) return -1;    //Надо ли возвращать -1 в других при NULL?
+
+	if (POINT_distance(&(this_l->first_point), p) + POINT_distance(p, &(this_l->second_point)) == this_l->lenght) return 1;
+	else return 0;
+}
