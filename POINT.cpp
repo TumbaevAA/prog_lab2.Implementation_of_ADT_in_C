@@ -13,7 +13,7 @@ int POINT_init(POINT* this_p, float x, float y)
 }
 
 
-float POINT_distance(POINT* this_p, POINT* end_p)
+float POINT_distance(const POINT*  this_p, const POINT*  end_p)
 {
     if (this_p == NULL || end_p == NULL) return -1;
 

@@ -2,7 +2,7 @@
 #include "LINE.h"
 
 
-int LINE_init(LINE* this_l, POINT* first_p, POINT* second_p)
+int LINE_init(LINE* this_l, const POINT* first_p, const POINT* second_p)
 {
 	if (first_p->x == second_p->x && first_p->y == second_p->y || this_l == NULL || first_p == NULL || second_p == NULL) return 1;
 
@@ -14,7 +14,7 @@ int LINE_init(LINE* this_l, POINT* first_p, POINT* second_p)
 		
 }
 
-int LINE_is_point_on_line(LINE* this_l, POINT* p)
+int LINE_is_point_on_line(const LINE* this_l, const POINT* p)
 {
 	if (this_l == NULL || p == NULL) return -1;    //Надо ли возвращать -1 в других при NULL?
 

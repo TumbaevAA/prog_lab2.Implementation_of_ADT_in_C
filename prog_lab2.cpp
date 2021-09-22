@@ -1,5 +1,6 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <malloc.h>
 #include "POINT.h"
 #include "LINE.h"
 #include "TRIANGLE.h"
@@ -15,13 +16,12 @@ int main()
 
 
     //Тест динамических POINT
-    POINT* first_dynamic_point = new POINT, * second_dynamic_point = new POINT;
+    POINT* first_dynamic_point = (POINT*)malloc(sizeof(POINT)), * second_dynamic_point = (POINT*)malloc(sizeof(POINT));
     POINT_init(first_dynamic_point, 1, 1);
     POINT_init(second_dynamic_point, 2, 2);
 
     lenght = 0;
     lenght = POINT_distance(first_dynamic_point, second_dynamic_point);
-
 
 
     //Тест LINE
@@ -42,7 +42,7 @@ int main()
     
 
     //Тест динамических LINE
-    LINE* dynamic_line = new LINE, * dynamic_line_dynamic_points = new LINE;
+    LINE* dynamic_line = (LINE*)malloc(sizeof(LINE)), * dynamic_line_dynamic_points = (LINE*)malloc(sizeof(LINE));
     LINE_init(dynamic_line, &first_point, &second_point);
     LINE_init(dynamic_line_dynamic_points, first_dynamic_point, second_dynamic_point);
 
