@@ -1,5 +1,6 @@
 #include <iostream>
 #include "TRIANGLE.h"
+#include <math.h>
 
 int TRIANGLE_init(TRIANGLE* this_t, const POINT* first_p, const POINT* second_p, const POINT* third_p)
 {
@@ -29,4 +30,13 @@ float TRIANGLE_perimeter(const TRIANGLE* this_t)
 {
     if (this_t == NULL) return -1;
     return this_t->first_line.lenght + this_t->second_line.lenght + this_t->third_line.lenght;
+
+}
+
+float TRIANGLE_area(const TRIANGLE* this_t)
+{
+    if (this_t == NULL) return -1;
+
+    float semi_per = TRIANGLE_perimeter(this_t) / 2;
+    return  sqrtf(semi_per * (semi_per - this_t->first_line.lenght) * (semi_per - this_t->second_line.lenght) * (semi_per - this_t->third_line.lenght));
 }

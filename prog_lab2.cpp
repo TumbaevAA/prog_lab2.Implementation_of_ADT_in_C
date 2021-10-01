@@ -4,6 +4,7 @@
 #include "POINT.h"
 #include "LINE.h"
 #include "TRIANGLE.h"
+#include "QUADRANGLE.h"
 
 int main()
 {
@@ -49,15 +50,16 @@ int main()
     TRIANGLE triangle;
     TRIANGLE_init(&triangle, &first_point, &second_point, &third_point);
     float T_perimeter = TRIANGLE_perimeter(&triangle);
+    float T_area = TRIANGLE_area(&triangle);
 
 
     //Тест динамического TRIANGLE
     TRIANGLE* dynamic_triangle = (TRIANGLE*)malloc(sizeof(TRIANGLE));
     TRIANGLE_init(dynamic_triangle, &first_point, &second_point, &third_point);
     T_perimeter = 0;
-    T_perimeter = TRIANGLE_perimeter(&triangle);
-
-    
+    T_perimeter = TRIANGLE_perimeter(dynamic_triangle); 
+    T_area = 0;
+    T_area = TRIANGLE_area(dynamic_triangle);
 
     return 0;
 }

@@ -11,4 +11,4 @@ typedef struct TRIANGLE
 
 int TRIANGLE_init(TRIANGLE* this_t, const POINT* first_p, const POINT* second_p, const POINT* third_p);
 float TRIANGLE_perimeter(const TRIANGLE* this_t);
-
+float TRIANGLE_area(const TRIANGLE* this_t);
