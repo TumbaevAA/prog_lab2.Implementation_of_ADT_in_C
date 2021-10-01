@@ -24,3 +24,9 @@ int TRIANGLE_init(TRIANGLE* this_t, const POINT* first_p, const POINT* second_p,
 
     return 0;
 }
+
+float TRIANGLE_perimeter(const TRIANGLE* this_t)
+{
+    if (this_t == NULL) return -1;
+    return this_t->first_line.lenght + this_t->second_line.lenght + this_t->third_line.lenght;
+}

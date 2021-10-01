@@ -39,8 +39,6 @@ int main()
 
 
 
-    
-
     //Тест динамических LINE
     LINE* dynamic_line = (LINE*)malloc(sizeof(LINE)), * dynamic_line_dynamic_points = (LINE*)malloc(sizeof(LINE));
     LINE_init(dynamic_line, &first_point, &second_point);
@@ -50,7 +48,16 @@ int main()
     //Тест TRIANGLE
     TRIANGLE triangle;
     TRIANGLE_init(&triangle, &first_point, &second_point, &third_point);
+    float T_perimeter = TRIANGLE_perimeter(&triangle);
 
+
+    //Тест динамического TRIANGLE
+    TRIANGLE* dynamic_triangle = (TRIANGLE*)malloc(sizeof(TRIANGLE));
+    TRIANGLE_init(dynamic_triangle, &first_point, &second_point, &third_point);
+    T_perimeter = 0;
+    T_perimeter = TRIANGLE_perimeter(&triangle);
+
+    
 
     return 0;
 }

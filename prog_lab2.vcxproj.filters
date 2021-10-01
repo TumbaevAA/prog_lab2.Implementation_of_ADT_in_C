@@ -27,6 +27,9 @@
     <ClCompile Include="TRIANGLE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ANGLE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="POINT.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TRIANGLE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ANGLE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
