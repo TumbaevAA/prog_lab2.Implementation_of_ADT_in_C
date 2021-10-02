@@ -5,6 +5,7 @@
 #include "LINE.h"
 #include "TRIANGLE.h"
 #include "SQUARE.h"
+#include "CIRCLE.h"
 
 
 int main()
@@ -85,13 +86,22 @@ int main()
     S_area = 0;
     S_area = SQUARE_area(dynamic_square);
 
+    //Тест CIRCLE
+    CIRCLE circle;
+    CIRCLE_init(&circle, &first_point, 4);
+    float C_area = CIRCLE_area(&circle);
+    float C_circumference = CIRCLE_circumference(&circle);
 
+    //Тест динамическог CIRCLE
+    CIRCLE* dynamic_circle = (CIRCLE*)malloc(sizeof(CIRCLE));
+    CIRCLE_init(dynamic_circle, &first_point, 4);
+    C_area = 0;
+    C_area = CIRCLE_area(dynamic_circle);
+    C_circumference = 0;
+    C_circumference = CIRCLE_circumference(dynamic_circle);
+    free(dynamic_circle);
 
-
-
-
-
-
+ 
     return 0;
 }
 

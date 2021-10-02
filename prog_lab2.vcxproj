@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CIRCLE.cpp" />
     <ClCompile Include="LINE.cpp" />
     <ClCompile Include="POINT.cpp" />
     <ClCompile Include="prog_lab2.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="TRIANGLE.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CIRCLE.h" />
     <ClInclude Include="LINE.h" />
     <ClInclude Include="POINT.h" />
     <ClInclude Include="SQUARE.h" />

@@ -30,6 +30,9 @@
     <ClCompile Include="SQUARE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CIRCLE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="POINT.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SQUARE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CIRCLE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
