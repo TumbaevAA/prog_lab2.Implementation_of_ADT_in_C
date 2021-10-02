@@ -17,6 +17,6 @@ int LINE_is_point_on_line(const LINE* this_l, const POINT* p)
 {
 	if (this_l == NULL || p == NULL) return -1;
 
-	if (POINT_distance(&(this_l->start_point), p) + POINT_distance(p, &(this_l->end_point)) == this_l->lenght) return 1;
+	if (POINT_distance(&(this_l->start_point), p) + POINT_distance(p, &(this_l->end_point)) == this_l->lenght) return 1; //Если точка на линии, возвращаем 1
 	else return 0;
-}
+}																										 //Иначе 0

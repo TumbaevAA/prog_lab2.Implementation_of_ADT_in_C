@@ -1,6 +1,6 @@
 #include <math.h>
 #include "CIRCLE.h"
-#define PI 3,1415926535
+#define PI 3.1415926535
 
 int CIRCLE_init(CIRCLE* this_c, const POINT* center, float radius)
 {
