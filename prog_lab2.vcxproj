@@ -139,18 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ANGLE.cpp" />
     <ClCompile Include="LINE.cpp" />
     <ClCompile Include="POINT.cpp" />
     <ClCompile Include="prog_lab2.cpp" />
-    <ClCompile Include="QUADRANGLE.cpp" />
+    <ClCompile Include="SQUARE.cpp" />
     <ClCompile Include="TRIANGLE.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ANGLE.h" />
     <ClInclude Include="LINE.h" />
     <ClInclude Include="POINT.h" />
-    <ClInclude Include="QUADRANGLE.h" />
+    <ClInclude Include="SQUARE.h" />
     <ClInclude Include="TRIANGLE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

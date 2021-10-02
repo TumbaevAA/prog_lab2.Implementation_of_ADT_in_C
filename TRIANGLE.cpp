@@ -1,12 +1,12 @@
-#include <iostream>
-#include "TRIANGLE.h"
 #include <math.h>
+#include "TRIANGLE.h"
+
 
 int TRIANGLE_init(TRIANGLE* this_t, const POINT* first_p, const POINT* second_p, const POINT* third_p)
 {
     if (this_t == NULL || first_p == NULL || second_p == NULL || third_p == NULL) return 1;
 
-    float d1= POINT_distance(first_p, second_p), d2 = POINT_distance(second_p, third_p), d3 = POINT_distance(third_p, first_p);
+    float d1 = POINT_distance(first_p, second_p), d2 = POINT_distance(second_p, third_p), d3 = POINT_distance(third_p, first_p);
     if (d1 == 0 || d2 == 0 || d3 == 0 ||                      //Если какие-то точки совпадают, возвращаем 1
         d1 == d2 + d3 || d2 == d1 + d3 || d3 == d1 + d2)      //Если какая-то точка лежит на отрезке между двумя другими, возращаем 1
     {

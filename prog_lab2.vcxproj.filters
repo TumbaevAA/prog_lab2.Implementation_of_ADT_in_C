@@ -27,10 +27,7 @@
     <ClCompile Include="TRIANGLE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ANGLE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="QUADRANGLE.cpp">
+    <ClCompile Include="SQUARE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,10 +41,7 @@
     <ClInclude Include="TRIANGLE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ANGLE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="QUADRANGLE.h">
+    <ClInclude Include="SQUARE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
