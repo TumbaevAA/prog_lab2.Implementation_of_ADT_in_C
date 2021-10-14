@@ -1,14 +1,22 @@
 #pragma once
-#include "POINT.h"
+#include "Point.h"
 
-typedef struct LINE
+typedef struct Line
 {
-	POINT start_point, end_point;
-	float lenght;
+	Point startPoint, endPoint;
 };
 
-int LINE_init(LINE* this_l, const POINT* start_p, const POINT* end_p);
-int LINE_is_point_on_line(const LINE* this_l, const POINT* p);
+bool lineInit(Line* line, Point start, Point end); 
+
+bool lineInput(Line* line);
+
+bool lineOutput(Line line);
+
+float lineLength(Line line);
+
+bool lineIsPointOnLine(Line line, Point point); 
+
+
 
 
 

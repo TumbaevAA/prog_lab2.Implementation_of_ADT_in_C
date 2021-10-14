@@ -1,14 +1,19 @@
 #pragma once
-#include "POINT.h"
-#include "LINE.h"
+#include "Point.h"
 
-typedef struct TRIANGLE
+typedef struct Triangle
 {
-	POINT first_point, second_point, third_point;
-	LINE first_line, second_line, third_line;
-
+	Point firstPoint, secondPoint, thirdPoint;              
 };
 
-int TRIANGLE_init(TRIANGLE* this_t, const POINT* first_p, const POINT* second_p, const POINT* third_p);
-float TRIANGLE_perimeter(const TRIANGLE* this_t);
-float TRIANGLE_area(const TRIANGLE* this_t);
+bool triangleInit(Triangle* triangle, Point first,Point second, Point third);
+
+bool triangleInput(Triangle* triangle);
+
+bool triangleOutput(Triangle triangle);
+
+float triangleLineLength(Triangle triangle, int lineNumber);
+
+float trianglePerimeter(Triangle triangle);
+
+float triangleArea(Triangle triangle);

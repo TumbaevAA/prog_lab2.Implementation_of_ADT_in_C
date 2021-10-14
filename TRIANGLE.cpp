@@ -1,42 +1,96 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <math.h>
-#include "TRIANGLE.h"
+#include <iostream>
+#include "Triangle.h"
 
 
-int TRIANGLE_init(TRIANGLE* this_t, const POINT* first_p, const POINT* second_p, const POINT* third_p)
-{
-    if (this_t == NULL || first_p == NULL || second_p == NULL || third_p == NULL) return 1;
+bool triangleInit(Triangle* triangle, Point first, Point second, Point third){
+    if (triangle == NULL || &first == NULL || &second == NULL || &third == NULL) return false;
 
-    float d1 = POINT_distance(first_p, second_p), d2 = POINT_distance(second_p, third_p), d3 = POINT_distance(third_p, first_p);
-    if (d1 == 0 || d2 == 0 || d3 == 0 ||                      //Если какие-то точки совпадают, возвращаем 1
-        d1 == d2 + d3 || d2 == d1 + d3 || d3 == d1 + d2)      //Если какая-то точка лежит на отрезке между двумя другими, возращаем 1
-    {
-        return 1;
+    float d1 = pointDistance(first, second), d2 = pointDistance(second, third), d3 = pointDistance(third, first);
+    if (d1 == 0 || d2 == 0 || d3 == 0 ||                      //Если какие-то точки совпадают, возвращаем false
+        d1 == d2 + d3 || d2 == d1 + d3 || d3 == d1 + d2){     //Если точка лежит на отрезке между двумя другими - false
+        return false;
     }
 
-    this_t->first_point = *first_p;
-    this_t->second_point = *second_p;
-    this_t->third_point = *third_p;
+    triangle->firstPoint = first;
+    triangle->secondPoint = second;
+    triangle->thirdPoint = third;
 
-    
-    LINE_init(&(this_t->first_line), &(this_t->first_point), &(this_t->second_point));
-    LINE_init(&(this_t->second_line), &(this_t->second_point), &(this_t->third_point));
-    LINE_init(&(this_t->third_line), &(this_t->third_point), &(this_t->first_point));
-
-
-    return 0;
+    return true;
 }
 
-float TRIANGLE_perimeter(const TRIANGLE* this_t)
-{
-    if (this_t == NULL) return -1;
-    return this_t->first_line.lenght + this_t->second_line.lenght + this_t->third_line.lenght;
+bool triangleInput(Triangle* triangle){
+    if (triangle == NULL) return false;
 
+    Point first, second, third;
+    if (scanf("%f%f%f%f%f%f", &first.x, &first.y, &second.x, &second.y, &third.x, &third.y) != 6) return false;
+
+
+
+    return triangleInit(triangle, first, second, third);
 }
 
-float TRIANGLE_area(const TRIANGLE* this_t)
-{
-    if (this_t == NULL) return -1;
+bool triangleOutput(Triangle triangle){
+    if (&triangle == NULL) return false;
 
-    float semi_per = TRIANGLE_perimeter(this_t) / 2;
-    return  sqrtf(semi_per * (semi_per - this_t->first_line.lenght) * (semi_per - this_t->second_line.lenght) * (semi_per - this_t->third_line.lenght));
+    printf("Triangle\n----------------------------------------------");
+    printf("\nThe points");
+    printf("\nfirst:");
+    pointOutput(triangle.firstPoint);
+    printf("\nsecond:");
+    pointOutput(triangle.secondPoint);
+    printf("\nthird:");
+    pointOutput(triangle.thirdPoint);
+
+    printf("\n\nThe line lenghts");
+    printf("\nfirst: %f", triangleLineLength(triangle, 1)); 
+    printf("\nsecond: %f", triangleLineLength(triangle, 2));
+    printf("\nthird: %f", triangleLineLength(triangle, 3));
+
+    printf("\n\nPerimeter = %f", trianglePerimeter(triangle));
+    printf("\n\Area = %f", triangleArea(triangle));
+    printf("\n----------------------------------------------");
+
+    return true;
+}
+
+
+float triangleLineLength(Triangle triangle, int lineNumber) {
+    if (&triangle == NULL || lineNumber < 1 || lineNumber>3) return -1;
+
+    switch (lineNumber){
+    case 1:
+        return pointDistance(triangle.firstPoint, triangle.secondPoint);
+       break;
+
+    case 2:
+        return pointDistance(triangle.secondPoint, triangle.thirdPoint);
+        break;
+
+    case 3:
+        return pointDistance(triangle.thirdPoint, triangle.firstPoint); 
+        break;
+    }
+}
+
+
+float trianglePerimeter(Triangle triangle)
+{
+    if (&triangle == NULL) return -1;
+
+    float perimeter = 0;
+    for (int i = 1; i < 4; i++) {
+        perimeter += triangleLineLength(triangle, i);
+    }
+
+    return perimeter;
+}
+
+float triangleArea(Triangle triangle)
+{
+    if (&triangle == NULL) return -1;
+
+    float semiPerimeter = trianglePerimeter(triangle)  / 2;
+    return  sqrtf(semiPerimeter * (semiPerimeter - triangleLineLength(triangle, 1)) * (semiPerimeter - triangleLineLength(triangle,2)) * (semiPerimeter - triangleLineLength(triangle, 3))); //Формула Герона
 }

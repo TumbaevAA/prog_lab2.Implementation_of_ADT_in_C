@@ -1,12 +1,18 @@
 #pragma once
-#include "POINT.h"
-typedef struct CIRCLE
-{
-	POINT center;
-	float radius;
+#include "Point.h"
 
+typedef struct Circle
+{
+	Point center;
+	float radius;
 };
 
-int CIRCLE_init(CIRCLE* this_c, const POINT* center, float radius);
-float CIRCLE_area(const CIRCLE* this_c);
-float CIRCLE_circumference(const CIRCLE* this_c);
+bool circleInit(Circle* circle, Point center, float radius);
+
+bool circleInput(Circle* circle);
+
+bool circleOutput(Circle circle);
+
+float circleArea(Circle circle);
+
+float circleCircumference(Circle circle);

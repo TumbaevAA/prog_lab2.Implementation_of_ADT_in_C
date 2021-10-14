@@ -1,9 +1,13 @@
 #pragma once
-typedef struct POINT
+typedef struct Point
 {
 	float x, y;
 };
 
-int POINT_init(POINT* this_p, float x, float y);
+bool pointInit(Point* point, float x, float y);
 
-float POINT_distance( const POINT* this_p, const POINT*  end_p);
+bool pointInput(Point* point);
+
+bool pointOutput(Point point);
+
+float pointDistance(Point start, Point end);

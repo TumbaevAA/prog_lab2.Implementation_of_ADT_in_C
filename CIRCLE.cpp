@@ -1,28 +1,54 @@
-#include <math.h>
-#include "CIRCLE.h"
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include "Circle.h"
 #define PI 3.1415926535
 
-int CIRCLE_init(CIRCLE* this_c, const POINT* center, float radius)
-{
-	if (this_c == NULL || center == NULL || radius <= 0) return 1;
+bool circleInit(Circle* circle, Point center, float radius){
+	if (circle == NULL || &center == NULL || radius <= 0) return false;
 
-	this_c->center = *center;
-	this_c->radius = radius;
-	return 0;
+	circle->center = center;
+	circle->radius = radius;
+
+	return true;
 }
 
-float CIRCLE_area(const CIRCLE* this_c)
-{
-	if (this_c == NULL) return -1;
+bool circleInput(Circle* circle){
+	if (circle == NULL) return false;
 
-	return PI * this_c->radius * this_c->radius;
+	Point center;
+	float radius;
+	if (scanf("%f%f%f", &center.x, &center.y, &radius) != 3) return false;
+
+	return circleInit(circle, center, radius);
 }
 
-float CIRCLE_circumference(const CIRCLE* this_c)
+bool circleOutput(Circle circle)
 {
-	if (this_c == NULL) return -1;
+    if (&circle == NULL) return false;
 
-	return 2 * PI * this_c->radius;
+    printf("Circle\n----------------------------------------------");
+    printf("\nCenter: ");
+    pointOutput(circle.center);
+	printf("\nRadius = %f", circle.radius);
+
+    printf("\n\Circumference = %f", circleCircumference(circle));
+    printf("\n\Area = %f", circleArea(circle));
+    printf("\n----------------------------------------------");
+
+    return true;
+}
+
+
+float circleArea(Circle circle){
+	if (&circle == NULL) return false;
+
+	return PI * circle.radius * circle.radius;
+}
+
+float circleCircumference(Circle circle){
+	if (&circle == NULL) return -1;
+
+	return 2 * PI * circle.radius;
 }
 
 

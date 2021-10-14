@@ -1,22 +1,41 @@
-#include "POINT.h"
+#define _CRT_SECURE_NO_WARNINGS
+#include "Point.h"
 #include <math.h>
+#include <iostream>
 
 
-int POINT_init(POINT* this_p, float x, float y)
+bool pointInit(Point* point, float x, float y){
+    if (point == NULL) return false;
+
+    point->x = x;
+    point->y = y;
+
+    return true;
+}
+
+bool pointInput(Point* point){
+    if (point == NULL) return false;
+
+    float x, y;
+    if (scanf("%f%f", &x, &y) != 2) return false;
+
+
+    return pointInit(point, x, y);
+}
+
+bool pointOutput(Point point)
 {
-    if (this_p == NULL) return 1;
+    if (&point == NULL) return false;
+    
+    printf("x = %f, y = %f", point.x, point.y);
 
-    this_p->x = x;
-    this_p->y = y;
-
-    return 0;
+    return true;
 }
 
 
-float POINT_distance(const POINT*  this_p, const POINT*  end_p)
-{
-    if (this_p == NULL || end_p == NULL) return -1;
+float pointDistance(Point start, Point end){
+    if (&start == NULL || &end == NULL) return -1;
 
-    float dx = end_p->x - this_p->x, dy = end_p->y - this_p->y;
-    return sqrt(dx * dx + dy * dy);
+    float d1 = end.x - start.x, d2 = end.y - start.y;
+    return sqrt(d1 * d1 + d2 * d2);
 }
